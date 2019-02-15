@@ -18,26 +18,23 @@ module.exports = function(grunt) {
             }
         },
         uglify: {
-            options: {
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-            },
-            dist: {
-                files: {
-                    'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+            uglify: {
+                my_target: {
+                    files: {
+                        'dest/output.min.js': 'src/js.js'
+                    }
                 }
             }
         },
-        minified : {
-            files: {
-                src: [
-                    '/src/**/*.css',
-                    '/src/*.css'
-                ],
-                dest: '/dist/min/'
-            },
-            options : {
-                sourcemap: true,
-                allinone: false
+        cssmin: {
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/css',
+                    src: ['*.css', '!*.min.css'],
+                    dest: 'src/css',
+                    ext: '.min.css'
+                }]
             }
         },
         browserify: {
@@ -51,10 +48,10 @@ module.exports = function(grunt) {
         }
     });
     grunt.loadNpmTasks('grunt-browserify');
-    grunt.loadNpmTasks('grunt-minified');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-uglify-es');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['uglify', 'minified', 'browserify']);
+    grunt.registerTask('default', ['uglify', 'cssmin', 'browserify']);
 
 };

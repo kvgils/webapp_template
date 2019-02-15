@@ -19,12 +19,9 @@
   "devDependencies": {
     "grunt": "^1.0.3",
     "grunt-browserify": "^5.3.0",
-    "grunt-contrib-uglify": "^4.0.0",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-minified": "0.0.6"
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-uglify-es": "^3.3.0",
+    "grunt-contrib-watch": "^1.1.0"
   },
-  "dependencies": {
-    "grunt-browserify": "^5.3.0",
-    "grunt-minified": "0.0.6"
-  }
+  "dependencies": {}
 }

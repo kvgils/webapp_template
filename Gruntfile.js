@@ -18,12 +18,11 @@ module.exports = function(grunt) {
             }
         },
         uglify: {
-            uglify: {
-                my_target: {
-                    files: {
-                        'dest/output.min.js': 'src/js.js'
-                    }
+            my_target: {
+                files: {
+                    'dist/uglified.min.js': ['src/js.js']
                 }
+
             }
         },
         cssmin: {
@@ -49,7 +48,7 @@ module.exports = function(grunt) {
     });
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-uglify-es');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', ['uglify', 'cssmin', 'browserify']);

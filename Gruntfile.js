@@ -31,18 +31,15 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'src/css',
                     src: ['*.css', '!*.min.css'],
-                    dest: 'src/css',
+                    dest: 'dist/css',
                     ext: '.min.css'
                 }]
             }
         },
         browserify: {
             dist: {
-                options: {
-                    transform: [['babelify', {presets: ['es2015']}]]
-                },
-                src: ['src/**/js.js'],
-                dest: 'dist/**/es2015.js',
+                src: ['src/js.js'],
+                dest: 'dist/es2015.js',
             }
         }
     });
